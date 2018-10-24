@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  FOR and WHILE loops.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Liam.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -31,6 +31,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 import simple_testing as st
 import math
 
+import math as mt
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -208,7 +209,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -217,8 +218,23 @@ def practice_problem3(start, n, threshold):
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
 
+    x = []
+    y = 0
+    for k in range(start, 1000000000000):
+        if (mt.cos(k) + mt.sin(k)) >= threshold:
+            x.insert(y, k)
+            #print(k)
+            y = y + 1
+            if y == n:
+                break
+    return x
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
 main()
+'''
+What goes out:  Returns a list of the first n integers,
+      starting at start, for which the sum of the integer's
+      sine and cosine is bigger than the given threshold.
+    Side effects: None'''

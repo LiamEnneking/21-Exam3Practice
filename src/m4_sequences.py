@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  SEQUENCES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Liam.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -134,7 +134,7 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -142,6 +142,13 @@ def practice_problem4a(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
+    x = []
+    y = 0
+    for k in range(len(sequence)):
+        if sequence[k-1] == sequence[k] and k != 0:
+            x.insert(y, k-1)
+            y = y + 1
+    return x
 
 def run_test_practice_problem4b():
     """ Tests the    practice_problem4b    function. """
@@ -197,7 +204,7 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -205,6 +212,12 @@ def practice_problem4b(sequence):
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
 
+    x = -10000000000
+    for k in range(len(sequence)):
+        if (k+2) % 2 == 0 and sequence[k] > x:
+            x = sequence[k]
+            print(x)
+    return x
 
 def run_test_practice_problem4c():
     """ Tests the    practice_problem4c    function. """
@@ -295,7 +308,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -307,6 +320,19 @@ def practice_problem4c(points):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
+    y = 0
+    for k in range(len(points)):
+        x = points[k]
+        if is_prime(x.x) is True and is_prime(x.y) is True:
+            px = points[k].x
+            py = points[k].y
+            points[k].x = py
+            points[k].y = px
+            y = points[k]
+            break
+        if y == 0:
+            y = 'Not found'
+    return y
 
 def run_test_practice_problem4d():
     """ Tests the    practice_problem4d    function. """
@@ -391,7 +417,7 @@ def practice_problem4d(sequence):
       :rtype: int
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -399,6 +425,12 @@ def practice_problem4d(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
+    x = 0
+    for k in range(len(sequence)):
+        if k < len(sequence)-1:
+            if is_prime(sequence[k]) is True and is_prime(sequence[k+1]) is True and sequence[k] != sequence[k+1]:
+                x = x + sequence[k]
+    return x
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

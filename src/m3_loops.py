@@ -136,7 +136,6 @@ def run_test_practice_problem3():
     #             that they are adequate tests!
     ####################################################################
 
-
 def practice_problem3(start, n, threshold):
     """
     What comes in:
